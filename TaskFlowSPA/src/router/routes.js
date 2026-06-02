@@ -1,18 +1,18 @@
-import { renderLogin } from "../views/auth/login";
-import { renderRegister } from "../views/auth/register";
-import { renderHome } from "../views/home";
-import { renderDashboard } from "../views/users/dashboard";
-import { renderTasks, setupTasks } from "../views/tasks/tasks";
-import { renderTasksForm, setupTasksForm } from "../views/tasks/taskForm";
-import { renderProfile, setupProfile } from "../views/users/profile";
-import { renderAdmin, setupAdmin } from "../views/users/admin";
-import { setupRegister } from "../views/auth/register";
-import { setupDashboard } from "../views/users/dashboard";
-import {setupLogin} from "../views/auth/login";
+import { renderLogin , setupLogin } from "../views/auth/login"
+import { renderNotFound } from "../views/auth/not-found"
+import { renderRegister , setupRegister } from "../views/auth/register"
+import { renderHome } from "../views/home"
+import { renderTasks , setupTasks} from "../views/tasks/tasks"
+import { renderAdmin , setupAdmin} from "../views/users/admin"
+import { renderDashboard , setupDashboard} from "../views/users/dashboard"
+import { renderProfile , setupProfile} from "../views/users/profile"
 
 
 
-const routes = {
+
+
+
+export const routes = {
     "/":{
         render: renderHome,
     },
@@ -36,16 +36,18 @@ const routes = {
         setup: setupTasks,
         isAuthorized: true,
     },
-    "/tasks/new": {
-        render: renderTasksForm,
-        setup: setupTasksForm,
-        isAuthorized: true,
-    },
-    "/tasks/edit": {
-        render: renderTasksForm,
-        setup: setupTasksForm,
-        isAuthorized: true,
-    },
+
+    //"/tasks/new": {
+    //    render: renderTasks,
+    //    setup: setupTasksForm,
+    //    isAuthorized: true,
+    //},
+    //"/tasks/edit": {
+    //    render: renderTasks,
+    //    setup: setupTasksForm,
+    //    isAuthorized: true,
+    //},
+
     "/profile": {
         render: renderProfile,
         setup: setupProfile,
@@ -55,6 +57,10 @@ const routes = {
     render: renderAdmin,
     setup: setupAdmin,
     isAuthorized: true,
-    requiredRole: "ADMIN"
-  }
-};
+    requiredRole: "ADMIN",
+    },
+    "/not-found":{
+        render: renderNotFound,
+        isAuthorized:false
+    }
+}

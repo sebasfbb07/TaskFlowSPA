@@ -1,4 +1,4 @@
-import { crearUsuario } from "../../services/authService.js";
+import { crearUsuario } from "../../services/users.services";
 
 export function renderRegister(){
     return `
@@ -25,7 +25,7 @@ export function renderRegister(){
             <h2 class="mt-2 text-3xl font-black text-slate-900">Crear cuenta</h2>
           </div>
           <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50"
-            href="/src/views/login.html">Ya tengo cuenta</a>
+            href="/login">Ya tengo cuenta</a>
         </div>
 
         <form id="register-form" class="mt-8 grid gap-5">
@@ -65,7 +65,7 @@ export function renderRegister(){
           </div>
 
           <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500"
-            href="/src/views/login.html">
+            href="/login">
             Registrarme
           </a>
         </form>

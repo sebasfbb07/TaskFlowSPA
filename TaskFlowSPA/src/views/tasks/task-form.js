@@ -1,5 +1,7 @@
-export function renderTaskForm(){
-    return `
+import { createLogger } from "vite"
+
+export function renderTaskForm() {
+  return `
 
   <body class="min-h-screen bg-sky-50 text-slate-800">
     <header class="border-b border-blue-100 bg-white/90 backdrop-blur">
@@ -53,8 +55,11 @@ export function renderTaskForm(){
       </section>
     </main>
 
-   
   </body>
 
     `
+}
+
+export function setupTasksForm(){
+  console.log("setting up tasks from")
 }
