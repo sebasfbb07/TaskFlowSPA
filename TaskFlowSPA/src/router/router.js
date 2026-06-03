@@ -1,7 +1,8 @@
 import { renderNotFound } from "../views/auth/not-found";
 import { routes } from "./routes";
 
-export function renderRoute(){
+
+export function renderRoute() {
     const app = document.getElementById("app");
     if (!app){
         return

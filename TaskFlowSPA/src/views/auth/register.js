@@ -1,11 +1,12 @@
-import { crearUsuario } from "../../services/users.services";
+import { renderRoute } from "../../router/router";
+import { createUser } from "../../services/users.services";
 
 export function renderRegister(){
     return `
     <body class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-blue-100 text-slate-800">
   <main class="grid min-h-screen lg:grid-cols-[0.95fr_1.05fr]">
     <section class="hidden border-r border-blue-100 bg-blue-600 p-10 text-white lg:flex lg:flex-col lg:justify-between">
-      <a class="text-xl font-black tracking-tight" href="/src/views/home.html">TaskFlowSPA</a>
+      <a class="text-xl font-black tracking-tight" href="/">TaskFlowSPA</a>
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">Nuevo usuario</p>
         <h1 class="mt-4 text-5xl font-black tracking-tight">Crea tu cuenta y empieza a organizar tu flujo.</h1>
@@ -64,10 +65,9 @@ export function renderRegister(){
             </div>
           </div>
 
-          <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500"
-            href="/login">
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500">
             Registrarme
-          </a>
+          </button>
         </form>
       </div>
     </section>
@@ -95,10 +95,9 @@ export function setupRegister(){
       roles: [role.value]
     };
 
-    const response = await crearUsuario(newUser);
-    if (response) {
-      alert("Usuario creado exitosamente");
-    }
+    await createUser(newUser)
+    window.history.pushState({}, "", "/");
+  renderRoute();
   })
-
+  
 };

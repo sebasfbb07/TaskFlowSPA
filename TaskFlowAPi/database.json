@@ -1,4 +1,13 @@
 {
-    "users":[],
-    "tasks":[]
+  "users": [],
+  "tasks": [
+    {
+      "title": "s",
+      "description": "s",
+      "status": "Pendiente",
+      "date": "2026-06-03",
+      "id": "ZskZ0-n30kk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
