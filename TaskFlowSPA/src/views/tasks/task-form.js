@@ -60,7 +60,10 @@ export function renderTaskForm() {
     `
 }
 
-export function setupTasksForm(){
+export function setupTasksForm() {
+
+  const params = new URLSearchParams(window.location.search);
+  const taskId = params.get("id");
   const form = document.getElementById("task-form");
   const nombre = document.getElementById("title");
   const description = document.getElementById("description");
@@ -76,7 +79,7 @@ export function setupTasksForm(){
       status: status.value,
       date: date.value
     }
-      await createTask(newTask)
+    await createTask(newTask)
     window.history.pushState({}, "", "/tasks");
     renderRoute();
   })

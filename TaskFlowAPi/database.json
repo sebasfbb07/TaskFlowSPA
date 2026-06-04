@@ -1,13 +1,16 @@
 {
-  "users": [],
-  "tasks": [
+  "users": [
     {
-      "title": "s",
-      "description": "s",
-      "status": "Pendiente",
-      "date": "2026-06-03",
-      "id": "ZskZ0-n30kk"
+      "name": "sebastian",
+      "lastname": "Bernal",
+      "email": "sebasbernal0719@gmail.com",
+      "password": "1234",
+      "roles": [
+        "USER"
+      ],
+      "id": 1
     }
   ],
+  "tasks": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

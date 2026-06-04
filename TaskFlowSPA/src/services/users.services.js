@@ -19,3 +19,17 @@ export async function createUser(user) {
         body: JSON.stringify(user)
     });
 }
+export async function deleteUser(id) {
+  await fetch(`${apiUrlUsers}/${id}`, {
+    method: "DELETE"
+  });
+}
+export async function updateUser(id, user) {
+  await fetch(`${apiUrlUsers}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+  });
+}

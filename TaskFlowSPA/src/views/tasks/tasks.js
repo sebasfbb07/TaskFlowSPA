@@ -1,4 +1,6 @@
-import { consultarTasks } from "../../services/api"
+import { consultarTasks } from "../../services/api";
+import { deleteTask } from "../../services/task.service";
+import { renderRoute } from "../../router/router";
 
 export function renderTasks() {
   return `
@@ -46,11 +48,54 @@ export async function setupTasks() {
     <h3 class="text-xl font-bold text-slate-900">${task.status}</h3>
     <p class="mt-2 text-slate-700">${task.title}</p>
     <div class="mt-4 flex gap-2">
-      <button class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">Editar</button>
-      <button class="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700">Eliminar</button>
-    </div>
+      <button
+  class="edit-btn rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+  data-id="${task.id}">
+  Editar
+  </button>
+  <button
+  class="delete-btn rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
+  data-id="${task.id}">
+  Eliminar
+  </button>
   </div>
   `
   }
   taskContainer.innerHTML = html
+  const deleteButtons =
+    document.querySelectorAll(".delete-btn");
+
+  deleteButtons.forEach(button => {
+
+    button.addEventListener("click", async () => {
+
+      const id = button.dataset.id;
+
+      await deleteTask(id);
+
+      setupTasks();
+
+    });
+
+  });
+  const editButtons =
+document.querySelectorAll(".edit-btn");
+
+editButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const id = button.dataset.id;
+
+    window.history.pushState(
+      {},
+      "",
+      `/task-form?id=${id}`
+    );
+
+    renderRoute();
+
+  });
+
+});
 }
